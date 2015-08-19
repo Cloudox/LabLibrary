@@ -14,6 +14,8 @@
 		ADAEC67A1B8404DA00C55256 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6791B8404DA00C55256 /* Images.xcassets */; };
 		ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC67B1B8404DA00C55256 /* LaunchScreen.xib */; };
 		ADAEC6891B8404DC00C55256 /* LabLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */; };
+		ADAEC6931B84055600C55256 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6921B84055600C55256 /* Books.plist */; };
+		ADAEC6951B841A4100C55256 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6941B841A4100C55256 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		ADAEC6821B8404DA00C55256 /* LabLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LabLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEC6871B8404DC00C55256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabLibraryTests.m; sourceTree = "<group>"; };
+		ADAEC6921B84055600C55256 /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
+		ADAEC6941B841A4100C55256 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../Desktop/icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				ADAEC66D1B8404DA00C55256 /* Info.plist */,
+				ADAEC6941B841A4100C55256 /* icon.png */,
+				ADAEC6921B84055600C55256 /* Books.plist */,
 				ADAEC66E1B8404DA00C55256 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -168,9 +174,11 @@
 				TargetAttributes = {
 					ADAEC6681B8404DA00C55256 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = F7Y8VJ7G23;
 					};
 					ADAEC6811B8404DA00C55256 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = F7Y8VJ7G23;
 						TestTargetID = ADAEC6681B8404DA00C55256;
 					};
 				};
@@ -200,7 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAEC6781B8404DA00C55256 /* Main.storyboard in Resources */,
+				ADAEC6951B841A4100C55256 /* icon.png in Resources */,
 				ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */,
+				ADAEC6931B84055600C55256 /* Books.plist in Resources */,
 				ADAEC67A1B8404DA00C55256 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +290,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuming Wang (KF352WDKT3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -302,6 +313,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "f7c247db-8c84-45bd-82f7-66f6a9638d17";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -323,6 +335,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuming Wang (KF352WDKT3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -338,6 +351,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "f7c247db-8c84-45bd-82f7-66f6a9638d17";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -347,9 +361,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LabLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -357,9 +375,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LabLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -367,6 +389,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -378,6 +402,7 @@
 				INFOPLIST_FILE = LabLibraryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LabLibrary.app/LabLibrary";
 			};
 			name = Debug;
@@ -386,6 +411,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -393,6 +420,7 @@
 				INFOPLIST_FILE = LabLibraryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LabLibrary.app/LabLibrary";
 			};
 			name = Release;
@@ -416,6 +444,7 @@
 				ADAEC68E1B8404DC00C55256 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADAEC68F1B8404DC00C55256 /* Build configuration list for PBXNativeTarget "LabLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +453,7 @@
 				ADAEC6911B8404DC00C55256 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

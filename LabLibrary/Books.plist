@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Head First HTML与CSS、XHTML（中文版）</string>
+	<string>JavaScript权威指南（第五版）</string>
+	<string>jQuery实战</string>
+	<string>精通正则表达式（第3版）</string>
+	<string>高性能网站建设进阶指南</string>
+	<string>Java核心技术（第8版）第1卷</string>
+	<string>Java核心技术（第8版）第2卷</string>
+	<string>Struts2深入详解（含光盘）</string>
+	<string>Spring揭秘</string>
+	<string>Spring技术内幕—深入解析Spring架构与设计原理</string>
+	<string>Head First 设计模式（中文版）</string>
+	<string>设计模式—可复用面向对象软件的基础</string>
+	<string>敏捷软件开发（原书第2版）</string>
+	<string>代码大全（第2版）</string>
+	<string>程序员修炼之道：从小工到专家</string>
+	<string>深入解析Oracle：DBA入门、进阶与诊断案例</string>
+	<string>Oracle Database 11g PL/SQL程序设计</string>
+	<string>MySQL必知必会</string>
+	<string>MySQL性能调优与架构设计</string>
+	<string>数据库系统概论（第4版）</string>
+	<string>数据仓库（原书第4版）</string>
+	<string>数据挖掘导论（完整版）</string>
+	<string>鸟哥的Linux私房菜—基础学习篇（第三版）</string>
+	<string>鸟哥的Linux私房菜—服务器架设篇（第二版）（附光盘）</string>
+	<string>Tomcat与Java Web开发技术详解（第2版）（含光盘1张）</string>
+	<string>计算机网络（中文第3版）</string>
+	<string>计算机网络（第4版）修订版（大学计算机教育国外著名教材系列（影印版））</string>
+	<string>人月神话（软件人员必读20周年经典纪念版）</string>
+	<string>网络安全概论</string>
+	<string>UNIX环境高级编程（英文版·第二版）</string>
+	<string>UNIX环境高级编程（第2版）</string>
+	<string>数据结构与算法分析：C语言描述（英文版·第2版）</string>
+	<string>仿真建模与分析（第三版英文）</string>
+	<string>领导学(第5版)</string>
+	<string>小企业的有效管理创业实务（第7版）</string>
+	<string>财务会计与管理决策（第5版）</string>
+	<string>财务管理：理论与实践（第10版）</string>
+	<string>深入浅出SQL（中文版）</string>
+	<string>数据挖掘概念与技术（原书第2版）</string>
+	<string>深入浅出数据分析</string>
+	<string>Java编程思想（第4版）</string>
+	<string>Head First Java（中文版）</string>
+	<string>Java 面向对象程序设计（英文版·第3版）</string>
+	<string>重构：改善既有代码的设计</string>
+	<string>Objective-C基础教程</string>
+	<string>iPhone 3开发基础教程</string>
+	<string>Android开发入门教程</string>
+	<string>精通Android 2</string>
+	<string>深入浅出Web设计（中文版）</string>
+	<string>捉虫记——大容量Web应用性能测试与LoadRunner实战</string>
+	<string>智能手机Web标准开发实战</string>
+	<string>Head First Ajax (中文版)</string>
+	<string>JUnit Recipes中文版——程序员实用测试技巧</string>
+	<string>Web项目测试实战</string>
+	<string>软件测试（原书第2版）</string>
+	<string>信任的速度：一个可以改变一切的力量</string>
+	<string>实践7个习惯</string>
+	<string>高效能人士的七个习惯（20周年纪念版）</string>
+	<string>要事第一：最新的时间管理方法和实用的时间控制技巧</string>
+	<string>金字塔原理</string>
+	<string>金字塔原理2</string>
+	<string>人月神话（32周年中文纪念版）</string>
+	<string>Scrum敏捷项目管理实战（微软技术丛书）</string>
+	<string>敏捷软件开发——原则、模式与实践</string>
+	<string>Scrum敏捷软件开发</string>
+	<string>用户故事与敏捷方法</string>
+	<string>TSP培训开发团队</string>
+	<string>项目经理案头手册（第3版）</string>
+	<string>项目经理魔鬼能力训练</string>
+	<string>项目管理知识体系指南（第4版）（PMBOK指南）</string>
+	<string>项目管理：计划、进度和控制的系统方法（第9版）</string>
+	<string>敏捷软件测试：测试人员与敏捷团队的实践指南</string>
+	<string>代码整洁之道</string>
+	<string>深入浅出Ext JS(第2版)</string>
+	<string>人月神话国内实战体验精华手册（32周年中文纪念版）</string>
+	<string>深入浅出JavaScript（中文版）</string>
+	<string>密码编码学与网络安全——原理与实践（第五版）</string>
+	<string>密码编码学与网络安全：原理与实践（第5版）（英文版）</string>
+	<string>java开发实战1200例第1卷</string>
+	<string>java开发实战1200例第2卷</string>
+	<string>疯狂Android讲义</string>
+	<string> Java从入门到精通（第2版）</string>
+	<string>Google Android开发入门指南(第2版)</string>
+	<string>Java SOA Cookbook中文版</string>
+	<string>Java网络编程（第3版）</string>
+	<string>可视化Java GUI程序设计</string>
+	<string>软件开发实战1200例：Java Web开发实战1200例（第1卷）（附光盘）</string>
+	<string>数据挖掘概念与技术（原书第3版）</string>
+	<string>Python基础教程（第2版）</string>
+	<string>设计模式之禅</string>
+	<string>java web整合开发王者归来</string>
+	<string>软件工程（原书第9版）</string>
+	<string>iOS软件开发揭秘：iPhone&amp;iPad企业应用和游戏开发</string>
+	<string>数据仓库（原书第4版）</string>
+	<string>java编程思想（第4版）</string>
+	<string>敏捷软件测试：测试人员与敏捷团队的实践指南</string>
+	<string>ASP.NET4.0从入门到精通</string>
+	<string>敏捷软件开发：原则、模式与实践（C#版）</string>
+	<string>专业嵌入式软件开发：全面走向高质高效编程</string>
+	<string>海量数据库解决方案</string>
+	<string>用户体验要素：以用户为中心的产品设计（原书第2版）</string>
+	<string>Node.js开发指南</string>
+	<string>CSS禅意花园(修订版)</string>
+	<string>研究之美（英汉对照）</string>
+	<string>HTML5移动Web开发指南</string>
+	<string>鲜活的数据</string>
+	<string>深入理解Java虚拟机:JVM高级特性与最佳实践</string>
+	<string>程序员的职业素养</string>
+	<string>Excel VBA实战技巧精粹（修订版）</string>
+	<string>响应式Web设计：HTML5和CSS3实战</string>
+	<string>Maven实战</string>
+	<string>HTML5程序设计(第2版)</string>
+	<string>JavaScript高级程序设计(第3版)</string>
+	<string>算法概论</string>
+	<string>大数据•互联网大规模数据挖掘与分布式处理</string>
+	<string>Excel 2010 VBA编程与实践</string>
+	<string>软件开发实战1200例：Java Web开发实战1200例（第2卷）</string>
+	<string>jQuery基础教程：第3版</string>
+	<string>收获，不止Oracle</string>
+	<string>Oracle性能优化求生指南</string>
+	<string>Oracle Database 9i/10g/11g编程艺术</string>
+	<string>Android开发实战经典</string>
+	<string>CSS网站布局实录 基于Web标准的网站设计指南 第2版</string>
+	<string>瞬间之美 Web界面设计如何让用户心动</string>
+	<string>用AngularJS开发下一代Web应用</string>
+	<string>Web之困 现代Web应用安全指南</string>
+	<string>JavaScript 语言精粹（修订版）</string>
+	<string>数据可视化实战 使用D3设计互式图表</string>
+	<string>Web信息架构 设计大型网站</string>
+	<string>Google 软件测试之道 像Google一样进行软件测试</string>
+	<string>高性能MySQL</string>
+	<string>淘宝技术这十年</string>
+	<string>大型网站技术架构 核心原理与案例分析</string>
+	<string>编写高质量代码 Web 前端开发修炼之道</string>
+	<string>HTTP权威指南</string>
+	<string>Bootstrap用户手册</string>
+	<string>DOM 编程艺术</string>
+	<string>软件加密原理与应用</string>
+	<string>中国历代帝王</string>
+	<string>中国皇帝传</string>
+	<string>中国皇后·宰相传</string>
+	<string>康熙 乾隆 雍正</string>
+	<string>清朝秘史</string>
+	<string>中国通史</string>
+	<string>中华上下五千年</string>
+	<string>世界下下五千年</string>
+	<string>写给年轻人的简明世界史</string>
+	<string>富爸爸穷爸爸</string>
+	<string>一看就懂心理学</string>
+	<string>狼图腾</string>
+	<string>藏地密码1-10（大结局）</string>
+	<string>藏原密码</string>
+	<string>中国人的焦虑从哪里来</string>
+	<string>赢在问题解决力</string>
+	<string>海底捞的秘密</string>
+	<string>中国企业没戏吗 I </string>
+	<string>中国企业没戏吗 II </string>
+	<string>汽车之父-福特 思维创新全书</string>
+	<string>洛克菲勒日记</string>
+	<string>史蒂夫·乔布斯传</string>
+	<string>聪明的投资者</string>
+	<string>华为人，你懂的</string>
+	<string>大数据时代</string>
+	<string>失控</string>
+	<string>麦肯锡方法</string>
+	<string>策略思维</string>
+	<string>伟大的博弈</string>
+	<string>数学之美</string>
+	<string>证券分析（上）</string>
+	<string>证券分析（下）</string>
+	<string>浪潮之巅（第二版上册）</string>
+	<string>浪潮之巅（第二版下册）</string>
+	<string>创业时，我们在知乎聊什么？</string>
+	<string>高效能人士的七个习惯</string>
+	<string>全球通史（从史前史到21世纪）第7版修订版上</string>
+	<string>全球通史（从史前史到21世纪）第7版修订版下</string>
+	<string>万历十五年（增订纪念本）</string>
+	<string>货币战争（升级版）</string>
+	<string>货币战争2：金权天下</string>
+	<string>货币战争3：金融高边疆</string>
+	<string>货币战争4：战国时代</string>
+	<string>货币战争5：山雨欲来</string>
+	<string>剑指Offer-名企面试官精讲典型编程题</string>
+	<string>编程之美-微软技术面试心得</string>
+	<string>安邦之道-国家转型的目标与途径</string>
+	<string>中国国民性演变历程</string>
+	<string>反脆弱</string>
+	<string>色彩设计的原理</string>
+	<string>JavaScript框架设计</string>
+	<string>JavaScript权威指南</string>
+	<string>Android应用UI设计模式</string>
+	<string>深入浅出Node.js</string>
+	<string>CSS权威指南</string>
+	<string>Hadoop实战</string>
+	<string>Android编程权威指南</string>
+	<string>Mahout实战</string>
+	<string>Oracle Database 11g RMAN备份与恢复</string>
+	<string>JavaScript设计模式</string>
+	<string>无懈可击的Web设计:使用HTML5和CSS3提高网站的灵活性与适应性(第3版)</string>
+	<string>国富论</string>
+	<string>文明之光</string>
+	<string>VMware vSphere企业运维实战</string>
+	<string>就业、利息和货币通论</string>
+	<string>21世纪资本论</string>
+	<string>大数据：正在到来的数据革命，以及它如何改变政府、商业与我们的生活（2.0升级版）</string>
+	<string>褚时健：影响企业家的企业家</string>
+	<string>精通AngularJS</string>
+	<string>Oracle 查询优化改写技巧与案例</string>
+	<string>Objective-C高级编程：iOS与OS X多线程和内存管理</string>
+	<string>反欺骗的艺术——世界传奇黑客的经历分享</string>
+	<string>线上幽灵：世界头号黑客米特尼克自传</string>
+	<string>反入侵的艺术——黑客入侵背后的真实故事</string>
+	<string>Oracle Database 11gR2 性能调整与优化</string>
+	<string>MongoDB权威指南</string>
+	<string>iOS开发指南：从零基础到App Store上架</string>
+	<string>大话Oracle RAC:集群、高可用性、备份与恢复</string>
+	<string>Oracle Database 11g 完全参考手册</string>
+	<string>数据之巅：大数据革命，历史、现实与未来</string>
+	<string>Eclipse We开发从入门到精通（实例版）</string>
+	<string>C++编程思想（两卷合订本）</string>
+	<string>软件设计师教程（第三版）（修订版）</string>
+	<string>看见</string>
+	<string>生活十讲</string>
+	<string>孤独六讲</string>
+	<string>我的探险生涯：西域探险家斯文·赫定回忆录</string>
+	<string>计算机网络：系统方法（原书第5版）</string>
+	<string>深入理解Bootstrap</string>
+	<string>iPhone开发秘籍（第2版）</string>
+	<string>最优化理论与算法</string>
+	<string>Java程序设计标准教程</string>
+	<string>Lucene实战</string>
+	<string>解密搜索引擎技术实战:Lucene&amp;Java</string>
+	<string>Oracle从入门到精通</string>
+	<string>Java TM.教程</string>
+</array>
+</plist>
