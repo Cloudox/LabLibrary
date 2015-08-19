@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 
@@ -17,13 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = @"实验室图书馆";
     
     // 读取plist
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
     NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
     self.bookList = [NSMutableArray arrayWithArray:tempArray];
     self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
-    NSLog(@"%@", self.bookList);
+//    NSLog(@"%@", self.bookList);
     
     // 去除列表多余线条
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -87,6 +90,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([indexPath row] == 0) {
+        // 必须通过storyboard来找到view！
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 选中后取消选中的颜色
 }
 

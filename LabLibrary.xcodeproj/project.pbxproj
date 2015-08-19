@@ -16,6 +16,7 @@
 		ADAEC6891B8404DC00C55256 /* LabLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */; };
 		ADAEC6931B84055600C55256 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6921B84055600C55256 /* Books.plist */; };
 		ADAEC6951B841A4100C55256 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6941B841A4100C55256 /* icon.png */; };
+		ADCED4BB1B8460D600AC6389 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCED4BA1B8460D600AC6389 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabLibraryTests.m; sourceTree = "<group>"; };
 		ADAEC6921B84055600C55256 /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
 		ADAEC6941B841A4100C55256 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../Desktop/icon.png; sourceTree = "<group>"; };
+		ADCED4B91B8460D600AC6389 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ADCED4BA1B8460D600AC6389 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				ADAEC6711B8404DA00C55256 /* AppDelegate.m */,
 				ADAEC6731B8404DA00C55256 /* ViewController.h */,
 				ADAEC6741B8404DA00C55256 /* ViewController.m */,
+				ADCED4B91B8460D600AC6389 /* DetailViewController.h */,
+				ADCED4BA1B8460D600AC6389 /* DetailViewController.m */,
 				ADAEC6761B8404DA00C55256 /* Main.storyboard */,
 				ADAEC6791B8404DA00C55256 /* Images.xcassets */,
 				ADAEC67B1B8404DA00C55256 /* LaunchScreen.xib */,
@@ -232,6 +237,7 @@
 				ADAEC6751B8404DA00C55256 /* ViewController.m in Sources */,
 				ADAEC6721B8404DA00C55256 /* AppDelegate.m in Sources */,
 				ADAEC66F1B8404DA00C55256 /* main.m in Sources */,
+				ADCED4BB1B8460D600AC6389 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
