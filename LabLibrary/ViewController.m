@@ -42,8 +42,9 @@
         [self.searchBooks removeAllObjects];
         [self.searchBooks addObjectsFromArray:self.bookList];
         NSMutableArray *toRemove = [[NSMutableArray alloc] init];
-        for (NSString *book in self.searchBooks) {
-            if ([book rangeOfString:searchTerm options:NSCaseInsensitiveSearch].location == NSNotFound) {
+        for (NSArray *book in self.searchBooks) {
+            
+            if ([[book objectAtIndex:0] rangeOfString:searchTerm options:NSCaseInsensitiveSearch].location == NSNotFound) {
                 [toRemove addObject:book];
             }
         }
@@ -52,7 +53,8 @@
     }
     
     if ([self.searchBooks count] == 0) {
-        [self.searchBooks addObject:@"没有搜索到任何图书"];
+        NSArray *noBook = [[NSArray alloc] initWithObjects:@"没有搜索到任何图书", nil];
+        [self.searchBooks addObject:noBook];
     }
     
     [self.tableView reloadData];
@@ -78,7 +80,7 @@
     }
     NSUInteger row = [indexPath row];
     // 通过行数来返回对应位置的plist内容
-    cell.textLabel.text = [self.searchBooks objectAtIndex:row];
+    cell.textLabel.text = [[self.searchBooks objectAtIndex:row] objectAtIndex:0];
     return cell;
 }
 
@@ -89,11 +91,14 @@
     return indexPath;
 }
 
+// 选中某一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([indexPath row] == 0) {
+    NSString *bookName =[[self.searchBooks objectAtIndex:0] objectAtIndex:0];
+    if (![bookName isEqualToString:@"没有搜索到任何图书"]) {// 确定是图书才跳转
         // 必须通过storyboard来找到view！
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        detailVC.isbn = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:1];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 选中后取消选中的颜色
