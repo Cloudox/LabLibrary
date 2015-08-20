@@ -99,6 +99,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
         detailVC.isbn = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:1];
+        detailVC.isbn = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:2];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 选中后取消选中的颜色

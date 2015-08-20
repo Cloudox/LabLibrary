@@ -96,6 +96,11 @@
         self.author.text = @"无作者信息";
     }
     
+    // 设置实验室编号
+    NSLog(@"nadr:%@", self.nadrNum);
+    NSString *nadr = [NSString stringWithFormat:@"实验室编号：%@", self.nadrNum];
+    self.nadrLabel.text = nadr;
+    
     
     // 获取简介
     NSDictionary *summary = [[NSDictionary alloc] init];
