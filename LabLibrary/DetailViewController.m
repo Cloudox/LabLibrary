@@ -20,7 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"图书详情";
     NSString *url = [NSString stringWithFormat:@"http://api.douban.com/book/subject/isbn/%@?alt=json", self.isbn];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSData *response = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];

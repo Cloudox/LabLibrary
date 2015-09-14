@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@property (strong, nonatomic) UIBarButtonItem *borderedBar;//右上角扫码按钮
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *bookList;// 图书总目录

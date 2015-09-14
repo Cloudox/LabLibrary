@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "ScanViewController.h"
 
 @interface ViewController ()
 
@@ -20,6 +21,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"实验室图书馆";
+    self.borderedBar  = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"图书扫码", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(scan)];
+    self.navigationItem.rightBarButtonItem = self.borderedBar;
     
     // 读取plist
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
@@ -30,6 +33,11 @@
     
     // 去除列表多余线条
     self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
+- (void)scan {// 进入扫码界面
+    ScanViewController *scanVC = [[ScanViewController alloc] init];
+    [self.navigationController pushViewController:scanVC animated:YES];
 }
 
 // 搜索图书
@@ -64,6 +72,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark TableView Data Source Methods
 // 列表的行数
