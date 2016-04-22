@@ -2,8 +2,8 @@
 //  DetailViewController.m
 //  LabLibrary
 //
-//  Created by csdc-iMac on 15/8/19.
-//  Copyright (c) 2015年 csdc. All rights reserved.
+//  Created by Cloudox on 15/8/19.
+//  Copyright (c) 2015年 Cloudox. All rights reserved.
 //
 
 #import "DetailViewController.h"
@@ -18,13 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Book Detail";
     
-    NSString *url = [NSString stringWithFormat:@"http://api.douban.com/book/subject/isbn/%@?alt=json", self.isbn];
+    // 获取标题
+    self.titleLabel.text = self.bookTitle;
+    
+    self.author.textColor = cmGreen;
+    self.nadrLabel.textColor = cmGreen;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self askForData];
+}
+
+// 请求数据
+- (void)askForData {
+    NSString *url = [NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/%@?alt=json", self.isbn];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSData *response = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
     NSString *str = [[NSString alloc] initWithBytes:[response bytes] length:[response length] encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@", str);
+    //    NSLog(@"%@", str);
     NSData *responseUTF = [str dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *infoDic = [NSJSONSerialization JSONObjectWithData:responseUTF options:NSJSONReadingMutableContainers error:&error];
@@ -32,85 +47,68 @@
         NSLog(@"error: %@", [error description]);
         return;
     }
-    NSLog(@"%@", infoDic);
-    
-    // 获取标题
-    NSDictionary *title = [[NSDictionary alloc] initWithDictionary:[infoDic objectForKey:@"title"]];
-    if ([title objectForKey:@"$t"]) {// 判断有无标题信息
-        NSString *titleStr = [[NSString alloc] initWithString:[title objectForKey:@"$t"]];
-        [self.titleLabel setFrame:CGRectMake(0, 100, 320, 100)];
-        self.titleLabel.numberOfLines = 0;
-        self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        self.titleLabel.text = titleStr;
-    } else {
-        self.titleLabel.text = @"无标题信息";
-    }
+    NSString *resultStr = [[NSString alloc] initWithData:responseUTF encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", resultStr);
     
     
     
     // label自动换行方法——————————————————————————
     /*
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 200, 320, 100)];
-    label.text = @"hahahahahahahahahhahahaahhaahhahahahahhahahaha";
-    label.numberOfLines = 0;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    [label sizeToFit];
-    label.font = [UIFont systemFontOfSize:17];
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
+     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 200, 320, 100)];
+     label.text = @"hahahahahahahahahhahahaahhaahhahahahahhahahaha";
+     label.numberOfLines = 0;
+     label.lineBreakMode = NSLineBreakByWordWrapping;
+     [label sizeToFit];
+     label.font = [UIFont systemFontOfSize:17];
+     label.textAlignment = NSTextAlignmentCenter;
+     [self.view addSubview:label];
      */
     // ——————————————————————————————————————————
     
     
     // 获取书籍图片
-    NSArray *link = [[NSArray alloc] initWithArray:[infoDic objectForKey:@"link"]];
-    NSDictionary *imageDic = [[NSDictionary alloc] init];
-    for (int i = 0; i < [link count]; i++) {// 循环找到image的url
-        imageDic = [link objectAtIndex:i];
-        NSString *rel = [[NSString alloc] init];
-        rel = [imageDic objectForKey:@"@rel"];
-        if ([rel isEqualToString:@"image"]) {
-            NSString *imageUrlStr = [[NSString alloc] init];
-            imageUrlStr = [imageDic objectForKey:@"@href"];
-            NSLog(@"image:%@", imageUrlStr);
-            NSURL *imageURL = [NSURL URLWithString:imageUrlStr];
-            UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:imageURL]];
-            [self.imageView setImage:image];
-            break;// 找到后就结束循环
-        }
-    }
+    NSDictionary *images = [infoDic objectForKey:@"images"];
+    NSString *imageUrlStr = [images objectForKey:@"medium"];
+    NSURL *imageURL = [NSURL URLWithString:imageUrlStr];
+    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:imageURL]];
+    [self.imageView setImage:image];
     
     
     // 获取作者信息
-    NSArray *array = [[NSArray alloc] init];
-    array = [infoDic objectForKey:@"author"];
-    if ([array count] != 0) {// 确保有作者信息
-        NSDictionary *dic = [[NSDictionary alloc] initWithDictionary:[array objectAtIndex:0]];
-        NSDictionary *authors = [[NSDictionary alloc] initWithDictionary:[dic objectForKey:@"name"]];
-        NSString *author1 = [NSString stringWithFormat:@"作者：%@", [authors objectForKey:@"$t"]];
+    NSArray *authorArray = [[NSArray alloc] init];
+    authorArray = [infoDic objectForKey:@"author"];
+    if ([authorArray count] != 0) {// 确保有作者信息
+        NSString *author = @"";
+        for (NSString *name in authorArray) {
+            if ([author isEqualToString:@""]) {// 第一个作者
+                author = name;
+            } else {
+                author = [NSString stringWithFormat:@"%@，%@", author, name];
+            }
+        }
         self.author.numberOfLines = 0;
         self.author.lineBreakMode = NSLineBreakByWordWrapping;
-        self.author.text = author1;
+        self.author.text = author;
     } else {
-        self.author.text = @"无作者信息";
+        self.author.text = @"No Author Data";
     }
+    
     
     // 设置实验室编号
     NSLog(@"nadr:%@", self.nadrNum);
-    NSString *nadr = [NSString stringWithFormat:@"实验室编号：%@", self.nadrNum];
+    NSString *nadr = [NSString stringWithFormat:@"No.%@", self.nadrNum];
     self.nadrLabel.text = nadr;
     
     
     // 获取简介
-    NSDictionary *summary = [[NSDictionary alloc] init];
+    NSString *summary = [[NSString alloc] init];
     summary = [infoDic objectForKey:@"summary"];
-    if ([summary objectForKey:@"$t"]) {// 判断是否存在简介
-        NSString *summaryStr = [[NSString alloc] initWithString:[summary objectForKey:@"$t"]];
-        self.summary.text = summaryStr;
+    if (summary.length > 0) {// 判断是否存在简介
+        self.summary.text = summary;
+        NSLog(@"%@", self.summary.text);
     } else {
-        self.summary.text = @"无简介";
+        self.summary.text = @"No Summary Data";
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,14 +116,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

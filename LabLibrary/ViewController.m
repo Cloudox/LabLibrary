@@ -2,8 +2,8 @@
 //  ViewController.m
 //  LabLibrary
 //
-//  Created by csdc-iMac on 15/8/19.
-//  Copyright (c) 2015年 csdc. All rights reserved.
+//  Created by Cloudox on 15/8/19.
+//  Copyright (c) 2015年 Cloudox. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -18,11 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationController.navigationBar.tintColor = navigationBarColor;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.title = @"实验室图书馆";
-    self.borderedBar  = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"图书扫码", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(scan)];
+    self.title = @"My Library";
+    self.borderedBar  = [[UIBarButtonItem alloc] initWithTitle:@"Scan Code" style:UIBarButtonItemStyleBordered target:self action:@selector(scan)];
     self.navigationItem.rightBarButtonItem = self.borderedBar;
+    
+    // 搜索栏操作
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.placeholder = @"search book";
+    [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
     
     // 读取plist
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
@@ -61,7 +68,7 @@
     }
     
     if ([self.searchBooks count] == 0) {
-        NSArray *noBook = [[NSArray alloc] initWithObjects:@"没有搜索到任何图书", nil];
+        NSArray *noBook = [[NSArray alloc] initWithObjects:@"No matched books", nil];
         [self.searchBooks addObject:noBook];
     }
     
@@ -103,12 +110,13 @@
 // 选中某一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *bookName =[[self.searchBooks objectAtIndex:0] objectAtIndex:0];
-    if (![bookName isEqualToString:@"没有搜索到任何图书"]) {// 确定是图书才跳转
+    if (![bookName isEqualToString:@"No matched books"]) {// 确定是图书才跳转
         // 必须通过storyboard来找到view！
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
         detailVC.isbn = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:1];
         detailVC.nadrNum = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:2];
+        detailVC.bookTitle = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:0];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 选中后取消选中的颜色

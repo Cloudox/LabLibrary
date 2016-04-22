@@ -18,8 +18,9 @@
 		ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC67B1B8404DA00C55256 /* LaunchScreen.xib */; };
 		ADAEC6891B8404DC00C55256 /* LabLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */; };
 		ADAEC6931B84055600C55256 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6921B84055600C55256 /* Books.plist */; };
-		ADAEC6951B841A4100C55256 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6941B841A4100C55256 /* icon.png */; };
 		ADCED4BB1B8460D600AC6389 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCED4BA1B8460D600AC6389 /* DetailViewController.m */; };
+		B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = B85980E51CCA6A4500269FB3 /* book_front_cover.png */; };
+		B85981081CCA73E400269FB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981071CCA73E400269FB3 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 		AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
 		AD6EC6311BA707BB00C9FF5A /* pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_bg@2x.png"; sourceTree = "<group>"; };
 		AD6EC6331BA707C000C9FF5A /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
-		ADAEC6691B8404DA00C55256 /* LabLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAEC6691B8404DA00C55256 /* Cloudox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEC66D1B8404DA00C55256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAEC66E1B8404DA00C55256 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADAEC6701B8404DA00C55256 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,9 +52,11 @@
 		ADAEC6871B8404DC00C55256 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabLibraryTests.m; sourceTree = "<group>"; };
 		ADAEC6921B84055600C55256 /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
-		ADAEC6941B841A4100C55256 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../Desktop/icon.png; sourceTree = "<group>"; };
 		ADCED4B91B8460D600AC6389 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ADCED4BA1B8460D600AC6389 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B85980E41CCA65F600269FB3 /* Library-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Library-Prefix.pch"; sourceTree = "<group>"; };
+		B85980E51CCA6A4500269FB3 /* book_front_cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_front_cover.png; sourceTree = "<group>"; };
+		B85981071CCA73E400269FB3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +89,7 @@
 		ADAEC66A1B8404DA00C55256 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADAEC6691B8404DA00C55256 /* LabLibrary.app */,
+				ADAEC6691B8404DA00C55256 /* Cloudox.app */,
 				ADAEC6821B8404DA00C55256 /* LabLibraryTests.xctest */,
 			);
 			name = Products;
@@ -114,10 +117,12 @@
 		ADAEC66C1B8404DA00C55256 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B85980E41CCA65F600269FB3 /* Library-Prefix.pch */,
+				B85981071CCA73E400269FB3 /* icon.png */,
 				AD6EC6311BA707BB00C9FF5A /* pick_bg@2x.png */,
 				AD6EC6331BA707C000C9FF5A /* line@2x.png */,
+				B85980E51CCA6A4500269FB3 /* book_front_cover.png */,
 				ADAEC66D1B8404DA00C55256 /* Info.plist */,
-				ADAEC6941B841A4100C55256 /* icon.png */,
 				ADAEC6921B84055600C55256 /* Books.plist */,
 				ADAEC66E1B8404DA00C55256 /* main.m */,
 			);
@@ -158,7 +163,7 @@
 			);
 			name = LabLibrary;
 			productName = LabLibrary;
-			productReference = ADAEC6691B8404DA00C55256 /* LabLibrary.app */;
+			productReference = ADAEC6691B8404DA00C55256 /* Cloudox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ADAEC6811B8404DA00C55256 /* LabLibraryTests */ = {
@@ -186,11 +191,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = csdc;
+				ORGANIZATIONNAME = Cloudox;
 				TargetAttributes = {
 					ADAEC6681B8404DA00C55256 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = F7Y8VJ7G23;
+						DevelopmentTeam = 7MF43XA67A;
 					};
 					ADAEC6811B8404DA00C55256 = {
 						CreatedOnToolsVersion = 6.4;
@@ -223,10 +228,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */,
 				AD6EC6341BA707C000C9FF5A /* line@2x.png in Resources */,
 				ADAEC6781B8404DA00C55256 /* Main.storyboard in Resources */,
-				ADAEC6951B841A4100C55256 /* icon.png in Resources */,
 				ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */,
+				B85981081CCA73E400269FB3 /* icon.png in Resources */,
 				ADAEC6931B84055600C55256 /* Books.plist in Resources */,
 				AD6EC6321BA707BB00C9FF5A /* pick_bg@2x.png in Resources */,
 				ADAEC67A1B8404DA00C55256 /* Images.xcassets in Resources */,
@@ -383,10 +389,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LabLibrary/Library-Prefix.pch";
 				INFOPLIST_FILE = LabLibrary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cloudox;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -397,10 +405,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LabLibrary/Library-Prefix.pch";
 				INFOPLIST_FILE = LabLibrary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Cloudox;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

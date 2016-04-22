@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  LabLibrary
 //
-//  Created by csdc-iMac on 15/8/19.
-//  Copyright (c) 2015年 csdc. All rights reserved.
+//  Created by Cloudox on 15/8/19.
+//  Copyright (c) 2015年 Cloudox. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -16,7 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //一些navbar的全局修改
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: navigationBarColor, NSForegroundColorAttributeName, [UIFont systemFontOfSize:20.0], NSFontAttributeName, nil]];
     
     
     return YES;
