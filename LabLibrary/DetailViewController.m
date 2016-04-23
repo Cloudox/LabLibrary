@@ -20,6 +20,9 @@
     [super viewDidLoad];
     self.title = @"Book Detail";
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];// 添加菊花;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];// 启动状态栏网络请求指示
+    
     // 获取标题
     self.titleLabel.text = self.bookTitle;
     
@@ -35,6 +38,7 @@
 
 // 请求数据
 - (void)askForData {
+    
     NSString *url = [NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/%@?alt=json", self.isbn];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     NSData *response = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:nil error:nil];
@@ -50,7 +54,7 @@
     NSString *resultStr = [[NSString alloc] initWithData:responseUTF encoding:NSUTF8StringEncoding];
     NSLog(@"%@", resultStr);
     
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];// 关闭状态来网络请求指示
     
     // label自动换行方法——————————————————————————
     /*
@@ -109,6 +113,8 @@
     } else {
         self.summary.text = @"No Summary Data";
     }
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];// 收起菊花
 }
 
 - (void)didReceiveMemoryWarning {

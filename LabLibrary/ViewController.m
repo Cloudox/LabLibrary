@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "ScanViewController.h"
+#import "BookListModel.h"
+#import "BookListCellView.h"
 
 @interface ViewController ()
 
@@ -87,16 +89,22 @@
     return [self.searchBooks count];
 }
 
+// 每行的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BookListCellView *cell = (BookListCellView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return [cell getHeight];
+}
+
 // 列表每行的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *SimpleTableIdentifier = @"SimpleTableIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimpleTableIdentifier];
+        cell = [[BookListCellView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 90) andData:[self.searchBooks objectAtIndex:indexPath.row]];
     }
-    NSUInteger row = [indexPath row];
+//    NSUInteger row = [indexPath row];
     // 通过行数来返回对应位置的plist内容
-    cell.textLabel.text = [[self.searchBooks objectAtIndex:row] objectAtIndex:0];
+//    cell.textLabel.text = [[self.searchBooks objectAtIndex:row] objectAtIndex:0];
     return cell;
 }
 
