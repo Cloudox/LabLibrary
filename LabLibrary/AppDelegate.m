@@ -8,8 +8,11 @@
 
 #import "AppDelegate.h"
 #import "ScanViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *scanNav;
 
 @end
 
@@ -31,11 +34,21 @@
     // 判断先前我们设置的唯一标识
     if([shortcutItem.type isEqualToString:@"quickScan"]){
         ScanViewController *scanVC = [[ScanViewController alloc] init];
-        UINavigationController *scanNav = [[UINavigationController alloc] initWithRootViewController:scanVC];
+        scanVC.isFrom3DTouch = YES;
+        self.scanNav = [[UINavigationController alloc] initWithRootViewController:scanVC];
         // 设置当前的VC 为rootVC
-        [self.window.rootViewController presentViewController:scanNav animated:YES completion:^{
+        [self.window.rootViewController presentViewController:self.scanNav animated:YES completion:^{
         }];
     }
+}
+
+-(void)changeToListViewController {
+    self.scanNav = nil;
+    // 必须通过storyboard来找到view！
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *listVC = [storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+    UINavigationController *listNav = [[UINavigationController alloc] initWithRootViewController:listVC];
+    self.window.rootViewController = listNav;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

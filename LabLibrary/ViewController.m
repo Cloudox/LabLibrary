@@ -71,6 +71,10 @@
     NSString *filename = [plistPath1 stringByAppendingPathComponent:@"Books.plist"];
     
     NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:filename];
+    if (tempArray.count == 0) {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
+        tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
+    }
     self.bookList = [NSMutableArray arrayWithArray:tempArray];
     self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
     [self.tableView reloadData];
@@ -79,6 +83,7 @@
 
 - (void)scan {// 进入扫码界面
     ScanViewController *scanVC = [[ScanViewController alloc] init];
+    scanVC.isFrom3DTouch = NO;
     [self.navigationController pushViewController:scanVC animated:YES];
 }
 
@@ -147,9 +152,6 @@
     if (cell == nil) {
         cell = [[BookListCellView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 90) andData:[self.searchBooks objectAtIndex:indexPath.row]];
     }
-//    NSUInteger row = [indexPath row];
-    // 通过行数来返回对应位置的plist内容
-//    cell.textLabel.text = [[self.searchBooks objectAtIndex:row] objectAtIndex:0];
     return cell;
 }
 
@@ -290,16 +292,33 @@
  *  peek手势
  */
 -(UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location{
-
     //弹出视图的初始位置，sourceRect是peek触发时的高亮区域。这个区域内的View会高亮显示，其余的会模糊掉
-    NSIndexPath *selectedPath = [self.tableView indexPathForRowAtPoint:location];
+    CGPoint tableLocation = [self.view convertPoint:location toView:self.tableView];
+    NSIndexPath *selectedPath = [self.tableView indexPathForRowAtPoint:tableLocation];
+    
     CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:selectedPath];
-    CGRect rect = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
-    previewingContext.sourceRect = rect;
+    CGRect sourceRect = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+    
+    previewingContext.sourceRect = sourceRect;
+    
     //获取数据进行传值
-    DetailViewController *childVC = [[DetailViewController alloc] init];
-    return childVC;
+    // 必须通过storyboard来找到view！
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    detailVC.isFromScan = NO;
+    detailVC.isbn = [[self.searchBooks objectAtIndex:[selectedPath row]] objectAtIndex:1];
+    detailVC.nadrNum = [[self.searchBooks objectAtIndex:[selectedPath row]] objectAtIndex:2];
+    detailVC.bookTitle = [[self.searchBooks objectAtIndex:[selectedPath row]] objectAtIndex:0];
+    return detailVC;
 }
+
+/**
+ *  pop手势，进入视图
+ */
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self.navigationController pushViewController:viewControllerToCommit animated:YES];
+}
+
 
 
 @end

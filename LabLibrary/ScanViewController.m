@@ -9,10 +9,13 @@
 #import "ScanViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 @interface ScanViewController ()
 
 @property (nonatomic, strong) UIView *tempView;
+
+@property (nonatomic,strong) AppDelegate *myAppDelegate;// app委托
 
 @end
 
@@ -22,6 +25,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"Scan ISBN";
+    
+    // app委托
+    self.myAppDelegate = [[UIApplication sharedApplication] delegate];
+    
+    self.navigationController.navigationBar.tintColor = navigationBarColor;
+    
+    // 如果来自3D Touch，提供回到列表的按钮
+    if (self.isFrom3DTouch) {
+        UIBarButtonItem *listButton = [[UIBarButtonItem alloc] initWithTitle:@"List" style:UIBarButtonItemStyleBordered target:self action:@selector(toList)];
+        self.navigationItem.rightBarButtonItem = listButton;
+    }
+    
     
     //获取摄像设备
     AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -86,6 +101,12 @@
 - (void)viewDidAppear:(BOOL)animated{
     //开始捕获
     [self.session startRunning];
+}
+
+// 回到列表界面
+- (void)toList {
+    [self.session stopRunning];
+    [self.myAppDelegate changeToListViewController];
 }
 
 // 扫描线条动画

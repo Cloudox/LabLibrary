@@ -22,7 +22,6 @@
 		ADCED4BB1B8460D600AC6389 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCED4BA1B8460D600AC6389 /* DetailViewController.m */; };
 		B84BC59E1CCC8F3700E6B48D /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = B84BC59D1CCC8F3700E6B48D /* code.png */; };
 		B84BC5A01CCC8FA000E6B48D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B84BC59F1CCC8FA000E6B48D /* add.png */; };
-		B84BC5A61CCC9C1300E6B48D /* CMAlertPopupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */; };
 		B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = B85980E51CCA6A4500269FB3 /* book_front_cover.png */; };
 		B85981081CCA73E400269FB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981071CCA73E400269FB3 /* icon.png */; };
 		B859810B1CCB24DC00269FB3 /* BookListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B859810A1CCB24DC00269FB3 /* BookListCellView.m */; };
@@ -66,11 +65,9 @@
 		ADAEC6921B84055600C55256 /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
 		ADCED4B91B8460D600AC6389 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ADCED4BA1B8460D600AC6389 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B84142D71CCCD454007A919F /* Library-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Library-Prefix.pch"; sourceTree = "<group>"; };
 		B84BC59D1CCC8F3700E6B48D /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
 		B84BC59F1CCC8FA000E6B48D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
-		B84BC5A41CCC9C1300E6B48D /* CMAlertPopupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAlertPopupManager.h; sourceTree = "<group>"; };
-		B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAlertPopupManager.m; sourceTree = "<group>"; };
-		B85980E41CCA65F600269FB3 /* Library-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Library-Prefix.pch"; sourceTree = "<group>"; };
 		B85980E51CCA6A4500269FB3 /* book_front_cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_front_cover.png; sourceTree = "<group>"; };
 		B85981071CCA73E400269FB3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		B85981091CCB24DC00269FB3 /* BookListCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListCellView.h; sourceTree = "<group>"; };
@@ -142,8 +139,6 @@
 				B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */,
 				AD6EC62E1BA7065400C9FF5A /* ScanViewController.h */,
 				AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */,
-				B84BC5A41CCC9C1300E6B48D /* CMAlertPopupManager.h */,
-				B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */,
 				ADAEC6761B8404DA00C55256 /* Main.storyboard */,
 				ADAEC6791B8404DA00C55256 /* Images.xcassets */,
 				ADAEC67B1B8404DA00C55256 /* LaunchScreen.xib */,
@@ -155,7 +150,7 @@
 		ADAEC66C1B8404DA00C55256 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B85980E41CCA65F600269FB3 /* Library-Prefix.pch */,
+				B84142D71CCCD454007A919F /* Library-Prefix.pch */,
 				B85981071CCA73E400269FB3 /* icon.png */,
 				B84BC59D1CCC8F3700E6B48D /* code.png */,
 				B84BC59F1CCC8FA000E6B48D /* add.png */,
@@ -369,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAEC6751B8404DA00C55256 /* ViewController.m in Sources */,
-				B84BC5A61CCC9C1300E6B48D /* CMAlertPopupManager.m in Sources */,
 				AD6EC6301BA7065400C9FF5A /* ScanViewController.m in Sources */,
 				B85981111CCB5B1000269FB3 /* MoreDetailViewController.m in Sources */,
 				B859810E1CCB250700269FB3 /* BookListModel.m in Sources */,

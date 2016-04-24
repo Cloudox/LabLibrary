@@ -22,4 +22,7 @@
 @property BOOL upOrdown;
 @property NSTimer * timer;
 
+// 记录3D Touch打开的
+@property BOOL isFrom3DTouch;
+
 @end

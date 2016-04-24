@@ -24,8 +24,8 @@
     [self.navigationItem setHidesBackButton:YES];
     
     // 导航栏按钮
-    UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
-    self.navigationItem.leftBarButtonItem = settingButton;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     if ([self.catalog isEqualToString:@""]) {// 没有目录内容
         self.view.backgroundColor = kUIColorFromRGB(0xefefef);
