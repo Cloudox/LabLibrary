@@ -33,9 +33,12 @@
     
     self.infoDic = [[NSDictionary alloc] init];
     
-    // 导航栏按钮
-    UIBarButtonItem *settingButton = [[UIBarButtonItem alloc] initWithTitle:@"Catalog" style:UIBarButtonItemStyleBordered target:self action:@selector(moreDetail)];
-    self.navigationItem.rightBarButtonItem = settingButton;
+    if (self.isFromScan) {
+        // 导航栏按钮，加入到图书库
+        UIImage *addImg = [UIImage imageNamed:@"add"];
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithImage:addImg style:UIBarButtonItemStylePlain target:self action:@selector(addToBookList)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
     
     // 获取标题
     self.titleLabel.text = self.bookTitle;
@@ -46,6 +49,11 @@
     
     self.author.textColor = cmGreen;
     self.nadrLabel.textColor = cmGreen;
+    
+    self.catalogLabel.textColor = cmGreen;
+    self.catalogLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *catalogTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewCatalog)];
+    [self.catalogLabel addGestureRecognizer:catalogTap];
     
     self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewImage)];
@@ -81,7 +89,7 @@
     return _bgView;
 }
 
-- (void)moreDetail {
+- (void)viewCatalog {
     MoreDetailViewController *moreDetailVC = [[MoreDetailViewController alloc] init];
     moreDetailVC.catalog = self.catalog;
     [self.navigationController pushViewController:moreDetailVC animated:NO];
@@ -127,6 +135,76 @@
     });
 }
 
+// 加入到本地
+- (void)addToBookList {
+    // 读取plist
+    
+    // 获取应用程序沙盒的Documents目录
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *plistPath1 = [paths objectAtIndex:0];
+    // 得到完整的文件名
+    NSString *filename = [plistPath1 stringByAppendingPathComponent:@"Books.plist"];
+    
+    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:filename];
+    NSMutableArray *bookList = [NSMutableArray arrayWithArray:tempArray];
+    NSArray *lastBook = [bookList lastObject];
+    NSInteger lastNumber = [[lastBook objectAtIndex:2] integerValue];
+    lastNumber ++;
+    self.nadrLabel.text = [NSString stringWithFormat:@"No.%ld", lastNumber];// 修改编号label
+    NSArray *newBook = [NSArray arrayWithObjects:self.bookTitle, self.isbn, [NSString stringWithFormat:@"%ld", lastNumber], nil];
+    [bookList addObject:newBook];
+    
+    // 写入
+    [bookList writeToFile:filename atomically:YES];
+     
+    [self addSuccessAnimation];
+}
+
+// 添加成功的动画
+- (void)addSuccessAnimation {
+    UILabel *successLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREENWIDTH - 200) / 2, (SCREENHEIGHT - 100) / 2, 200, 100)];
+    successLabel.backgroundColor = [UIColor whiteColor];
+    // view显示为圆角
+    successLabel.layer.cornerRadius = 8.0;
+    // 加边框
+    successLabel.layer.borderWidth = 1.0;
+    successLabel.layer.borderColor = [cmGreen CGColor];
+    [successLabel.layer setCornerRadius:4.0];
+    successLabel.textAlignment = NSTextAlignmentCenter;
+    successLabel.font = [UIFont systemFontOfSize:20];
+    successLabel.text = @"Add Success!";
+    successLabel.alpha = 0;
+    
+    [self.view addSubview:successLabel];
+    // 进行动画
+    [UIView animateWithDuration:0.3 animations:^{
+        successLabel.alpha = 1;
+    }];
+    
+    // 动画收起
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [UIView animateWithDuration:0.8 animations:^{
+            successLabel.frame = CGRectMake(SCREENWIDTH - 30, 5, 10, 5);
+            successLabel.alpha = 0;
+        }];
+    });
+    
+    // 隐藏图标
+    double delayInSeconds2 = 1.5;
+    __block DetailViewController* bself = self;
+    dispatch_time_t popTime2 = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds2 * NSEC_PER_SEC));
+    dispatch_after(popTime2, dispatch_get_main_queue(), ^(void){
+        // 隐藏添加按钮
+        for (UIView *view in bself.navigationController.navigationBar.subviews) {
+            if ([view isKindOfClass:[UIButton class]]) {
+                [view setHidden:YES];
+            }
+        }
+    });
+}
+
 // 请求数据
 - (void)askForData {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];// 添加菊花;
@@ -153,6 +231,7 @@
             // 书籍标题
             if ([self.bookTitle isEqualToString:@""]) {
                 self.titleLabel.text = [self.infoDic objectForKey:@"title"];
+                self.bookTitle =[self.infoDic objectForKey:@"title"];
             }
             
             // 获取书籍图片

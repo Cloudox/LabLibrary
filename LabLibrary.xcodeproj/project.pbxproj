@@ -20,12 +20,14 @@
 		ADAEC6891B8404DC00C55256 /* LabLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAEC6881B8404DC00C55256 /* LabLibraryTests.m */; };
 		ADAEC6931B84055600C55256 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAEC6921B84055600C55256 /* Books.plist */; };
 		ADCED4BB1B8460D600AC6389 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCED4BA1B8460D600AC6389 /* DetailViewController.m */; };
+		B84BC59E1CCC8F3700E6B48D /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = B84BC59D1CCC8F3700E6B48D /* code.png */; };
+		B84BC5A01CCC8FA000E6B48D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B84BC59F1CCC8FA000E6B48D /* add.png */; };
+		B84BC5A61CCC9C1300E6B48D /* CMAlertPopupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */; };
 		B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */ = {isa = PBXBuildFile; fileRef = B85980E51CCA6A4500269FB3 /* book_front_cover.png */; };
 		B85981081CCA73E400269FB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981071CCA73E400269FB3 /* icon.png */; };
 		B859810B1CCB24DC00269FB3 /* BookListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B859810A1CCB24DC00269FB3 /* BookListCellView.m */; };
 		B859810E1CCB250700269FB3 /* BookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B859810D1CCB250700269FB3 /* BookListModel.m */; };
 		B85981111CCB5B1000269FB3 /* MoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */; };
-		B859811D1CCB714800269FB3 /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = B859811C1CCB714800269FB3 /* code.png */; };
 		B85981231CCB8D3A00269FB3 /* ContainerBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85981221CCB8D3A00269FB3 /* ContainerBackgroundView.xib */; };
 		B85981261CCBA5D400269FB3 /* scan_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981241CCBA5D400269FB3 /* scan_bg.png */; };
 		B85981271CCBA5D400269FB3 /* scan_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981251CCBA5D400269FB3 /* scan_line.png */; };
@@ -64,6 +66,10 @@
 		ADAEC6921B84055600C55256 /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
 		ADCED4B91B8460D600AC6389 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ADCED4BA1B8460D600AC6389 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		B84BC59D1CCC8F3700E6B48D /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
+		B84BC59F1CCC8FA000E6B48D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		B84BC5A41CCC9C1300E6B48D /* CMAlertPopupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAlertPopupManager.h; sourceTree = "<group>"; };
+		B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAlertPopupManager.m; sourceTree = "<group>"; };
 		B85980E41CCA65F600269FB3 /* Library-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Library-Prefix.pch"; sourceTree = "<group>"; };
 		B85980E51CCA6A4500269FB3 /* book_front_cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_front_cover.png; sourceTree = "<group>"; };
 		B85981071CCA73E400269FB3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -73,7 +79,6 @@
 		B859810D1CCB250700269FB3 /* BookListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListModel.m; sourceTree = "<group>"; };
 		B859810F1CCB5B1000269FB3 /* MoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDetailViewController.h; sourceTree = "<group>"; };
 		B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreDetailViewController.m; sourceTree = "<group>"; };
-		B859811C1CCB714800269FB3 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
 		B85981221CCB8D3A00269FB3 /* ContainerBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerBackgroundView.xib; sourceTree = "<group>"; };
 		B85981241CCBA5D400269FB3 /* scan_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_bg.png; sourceTree = "<group>"; };
 		B85981251CCBA5D400269FB3 /* scan_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_line.png; sourceTree = "<group>"; };
@@ -137,6 +142,8 @@
 				B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */,
 				AD6EC62E1BA7065400C9FF5A /* ScanViewController.h */,
 				AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */,
+				B84BC5A41CCC9C1300E6B48D /* CMAlertPopupManager.h */,
+				B84BC5A51CCC9C1300E6B48D /* CMAlertPopupManager.m */,
 				ADAEC6761B8404DA00C55256 /* Main.storyboard */,
 				ADAEC6791B8404DA00C55256 /* Images.xcassets */,
 				ADAEC67B1B8404DA00C55256 /* LaunchScreen.xib */,
@@ -150,7 +157,8 @@
 			children = (
 				B85980E41CCA65F600269FB3 /* Library-Prefix.pch */,
 				B85981071CCA73E400269FB3 /* icon.png */,
-				B859811C1CCB714800269FB3 /* code.png */,
+				B84BC59D1CCC8F3700E6B48D /* code.png */,
+				B84BC59F1CCC8FA000E6B48D /* add.png */,
 				B85981241CCBA5D400269FB3 /* scan_bg.png */,
 				B85981251CCBA5D400269FB3 /* scan_line.png */,
 				AD6EC6311BA707BB00C9FF5A /* pick_bg@2x.png */,
@@ -283,10 +291,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85981231CCB8D3A00269FB3 /* ContainerBackgroundView.xib in Resources */,
+				B84BC59E1CCC8F3700E6B48D /* code.png in Resources */,
 				B85981261CCBA5D400269FB3 /* scan_bg.png in Resources */,
 				B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */,
 				AD6EC6341BA707C000C9FF5A /* line@2x.png in Resources */,
-				B859811D1CCB714800269FB3 /* code.png in Resources */,
 				ADAEC6781B8404DA00C55256 /* Main.storyboard in Resources */,
 				ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */,
 				B85981081CCA73E400269FB3 /* icon.png in Resources */,
@@ -294,6 +302,7 @@
 				ADAEC6931B84055600C55256 /* Books.plist in Resources */,
 				AD6EC6321BA707BB00C9FF5A /* pick_bg@2x.png in Resources */,
 				ADAEC67A1B8404DA00C55256 /* Images.xcassets in Resources */,
+				B84BC5A01CCC8FA000E6B48D /* add.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAEC6751B8404DA00C55256 /* ViewController.m in Sources */,
+				B84BC5A61CCC9C1300E6B48D /* CMAlertPopupManager.m in Sources */,
 				AD6EC6301BA7065400C9FF5A /* ScanViewController.m in Sources */,
 				B85981111CCB5B1000269FB3 /* MoreDetailViewController.m in Sources */,
 				B859810E1CCB250700269FB3 /* BookListModel.m in Sources */,

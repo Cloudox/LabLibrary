@@ -14,10 +14,13 @@
 
 @property (strong, nonatomic) NSString *bookTitle;// 图书的标题
 
+@property BOOL isFromScan;// 记录是否来自扫描条形码
+
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *author;
 @property (strong, nonatomic) IBOutlet UILabel *nadrLabel;
 @property (strong, nonatomic) IBOutlet UITextView *summary;
+@property (strong, nonatomic) IBOutlet UILabel *catalogLabel;
 
 @end

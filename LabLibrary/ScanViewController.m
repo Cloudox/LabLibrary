@@ -64,7 +64,7 @@
     // 说明文字
     self.explainLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, (screenBounds.size.height - (screenBounds.size.width - 60))/2 + screenBounds.size.width - 50, screenBounds.size.width - 60, 30)];
     self.explainLabel.textColor = [UIColor whiteColor];
-    self.explainLabel.text = @"将方框对准二维码、条形码进行扫描";
+    self.explainLabel.text = @"Aim the bar code to Scan";
     self.explainLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.explainLabel];
     
@@ -135,6 +135,7 @@
         // 必须通过storyboard来找到view！
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        detailVC.isFromScan = YES;
         detailVC.isbn = metadataObject.stringValue;
         detailVC.nadrNum = @"";
         detailVC.bookTitle = @"";

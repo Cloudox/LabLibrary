@@ -33,7 +33,7 @@
     // 导航栏按钮
 //    self.borderedBar  = [[UIBarButtonItem alloc] initWithTitle:@"Scan Code" style:UIBarButtonItemStyleBordered target:self action:@selector(scan)];
 //    self.navigationItem.rightBarButtonItem = self.borderedBar;
-    UIImage *searchImg = [self originImage:[UIImage imageNamed:@"code"] scaleToSize:CGSizeMake(25, 25)];
+    UIImage *searchImg = [UIImage imageNamed:@"code"];
     UIBarButtonItem *searchBtn = [[UIBarButtonItem alloc] initWithImage:searchImg style:UIBarButtonItemStylePlain target:self action:@selector(scan)];
     self.navigationItem.rightBarButtonItem = searchBtn;
     
@@ -43,11 +43,10 @@
     [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
     
     // 读取plist
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
-    self.bookList = [NSMutableArray arrayWithArray:tempArray];
-    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
-//    NSLog(@"%@", self.bookList);
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
+//    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
+//    self.bookList = [NSMutableArray arrayWithArray:tempArray];
+//    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
     
     // 去除列表多余线条
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -63,16 +62,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // 读取plist
+    
+    // 获取应用程序沙盒的Documents目录
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *plistPath1 = [paths objectAtIndex:0];
+    // 得到完整的文件名
+    NSString *filename = [plistPath1 stringByAppendingPathComponent:@"Books.plist"];
+    
+    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:filename];
+    self.bookList = [NSMutableArray arrayWithArray:tempArray];
+    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
+    [self.tableView reloadData];
     [self.tempView removeFromSuperview];
-}
-
--(UIImage*) originImage:(UIImage *)image scaleToSize:(CGSize)size
-{
-    UIGraphicsBeginImageContext(size);  //size 为CGSize类型，即你所需要的图片尺寸
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;   //返回的就是已经改变的图片
 }
 
 - (void)scan {// 进入扫码界面
@@ -101,7 +103,7 @@
     }
     
     if ([self.searchBooks count] == 0) {
-        NSArray *noBook = [[NSArray alloc] initWithObjects:@"No matched books", nil];
+        NSArray *noBook = [[NSArray alloc] initWithObjects:@"No matched books", @"No ISBN", @"No Number", nil];
         [self.searchBooks addObject:noBook];
     }
     
@@ -166,6 +168,7 @@
         // 必须通过storyboard来找到view！
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        detailVC.isFromScan = NO;
         detailVC.isbn = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:1];
         detailVC.nadrNum = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:2];
         detailVC.bookTitle = [[self.searchBooks objectAtIndex:[indexPath row]] objectAtIndex:0];
@@ -186,7 +189,7 @@
         self.tempView.backgroundColor = [UIColor whiteColor];
 //        self.tempView.alpha = 0.5;
         [self.view addSubview:self.tempView];
-        // 进行一秒钟的动画
+        // 进行动画
         [UIView animateWithDuration:0.3 animations:^{
             self.tempView.transform = CGAffineTransformMakeScale(1.0, SCREENHEIGHT / rect.size.height * 2);
         }];
@@ -202,6 +205,56 @@
     }
 }
 
+// 是否允许编辑
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+// 编辑风格
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;// 删除风格
+}
+
+// 定义删除按钮名称
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"delete";
+}
+
+// 删除响应方法
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteBook:indexPath];// 删除书籍
+    }
+}
+
+// 删除书籍
+- (void)deleteBook:(NSIndexPath *)indexPath {
+    NSArray *selectedBook = [self.searchBooks objectAtIndex:indexPath.row];// 操作的书籍
+    // 读取plist
+    // 获取应用程序沙盒的Documents目录
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *plistPath1 = [paths objectAtIndex:0];
+    // 得到完整的文件名
+    NSString *filename = [plistPath1 stringByAppendingPathComponent:@"Books.plist"];
+    
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[[NSArray alloc] initWithContentsOfFile:filename]];
+    NSArray *bookInfo = [[NSArray alloc] init];
+    for (int i = 0; i < tempArray.count; i++) {
+        bookInfo = [tempArray objectAtIndex:i];
+        if ([bookInfo[2] integerValue] == [selectedBook[2] integerValue]) {// 找到删除的书
+            [tempArray removeObjectAtIndex:i];
+        }
+    }
+    self.bookList = [NSMutableArray arrayWithArray:tempArray];
+    // 写入
+    [self.bookList writeToFile:filename atomically:YES];
+    [self.searchBooks removeObjectAtIndex:indexPath.row];
+    if ([self.searchBooks count] == 0) {
+        NSArray *noBook = [[NSArray alloc] initWithObjects:@"No matched books", @"No ISBN", @"No Number", nil];
+        [self.searchBooks addObject:noBook];
+    }
+    [self.tableView reloadData];
+}
 
 
 // 滑动时收起搜索框的键盘
