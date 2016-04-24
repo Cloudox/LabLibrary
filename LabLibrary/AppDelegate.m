@@ -31,8 +31,9 @@
     // 判断先前我们设置的唯一标识
     if([shortcutItem.type isEqualToString:@"quickScan"]){
         ScanViewController *scanVC = [[ScanViewController alloc] init];
+        UINavigationController *scanNav = [[UINavigationController alloc] initWithRootViewController:scanVC];
         // 设置当前的VC 为rootVC
-        [self.window.rootViewController presentViewController:scanVC animated:YES completion:^{
+        [self.window.rootViewController presentViewController:scanNav animated:YES completion:^{
         }];
     }
 }
