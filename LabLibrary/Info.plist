@@ -36,5 +36,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Scan</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>quickScan</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Scan ISBN</string>
+		</dict>
+	</array>
 </dict>
 </plist>

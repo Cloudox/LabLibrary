@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ScanViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,17 @@
     
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler{
+    NSLog(@"3D Touch快捷操作");
+    // 判断先前我们设置的唯一标识
+    if([shortcutItem.type isEqualToString:@"quickScan"]){
+        ScanViewController *scanVC = [[ScanViewController alloc] init];
+        // 设置当前的VC 为rootVC
+        [self.window.rootViewController presentViewController:scanVC animated:YES completion:^{
+        }];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

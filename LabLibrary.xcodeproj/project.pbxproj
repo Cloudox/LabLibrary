@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53E68E6EAFD61416E11DF76B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E3A7E7A265C5CD56A77B0E /* libPods.a */; };
+		7B418F14A002424C3B05FF58 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BF4F459D84E2EEC84C6480 /* libPods.a */; };
 		AD6EC6301BA7065400C9FF5A /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */; };
 		AD6EC6321BA707BB00C9FF5A /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6EC6311BA707BB00C9FF5A /* pick_bg@2x.png */; };
 		AD6EC6341BA707C000C9FF5A /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6EC6331BA707C000C9FF5A /* line@2x.png */; };
@@ -24,6 +24,11 @@
 		B85981081CCA73E400269FB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981071CCA73E400269FB3 /* icon.png */; };
 		B859810B1CCB24DC00269FB3 /* BookListCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = B859810A1CCB24DC00269FB3 /* BookListCellView.m */; };
 		B859810E1CCB250700269FB3 /* BookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B859810D1CCB250700269FB3 /* BookListModel.m */; };
+		B85981111CCB5B1000269FB3 /* MoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */; };
+		B859811D1CCB714800269FB3 /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = B859811C1CCB714800269FB3 /* code.png */; };
+		B85981231CCB8D3A00269FB3 /* ContainerBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85981221CCB8D3A00269FB3 /* ContainerBackgroundView.xib */; };
+		B85981261CCBA5D400269FB3 /* scan_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981241CCBA5D400269FB3 /* scan_bg.png */; };
+		B85981271CCBA5D400269FB3 /* scan_line.png in Resources */ = {isa = PBXBuildFile; fileRef = B85981251CCBA5D400269FB3 /* scan_line.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		45E3A7E7A265C5CD56A77B0E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BF4F459D84E2EEC84C6480 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		798FF6961C46426CFDE653D8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AD6EC62E1BA7065400C9FF5A /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
 		AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
@@ -66,6 +71,12 @@
 		B859810A1CCB24DC00269FB3 /* BookListCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListCellView.m; sourceTree = "<group>"; };
 		B859810C1CCB250700269FB3 /* BookListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListModel.h; sourceTree = "<group>"; };
 		B859810D1CCB250700269FB3 /* BookListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListModel.m; sourceTree = "<group>"; };
+		B859810F1CCB5B1000269FB3 /* MoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDetailViewController.h; sourceTree = "<group>"; };
+		B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreDetailViewController.m; sourceTree = "<group>"; };
+		B859811C1CCB714800269FB3 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
+		B85981221CCB8D3A00269FB3 /* ContainerBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerBackgroundView.xib; sourceTree = "<group>"; };
+		B85981241CCBA5D400269FB3 /* scan_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_bg.png; sourceTree = "<group>"; };
+		B85981251CCBA5D400269FB3 /* scan_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_line.png; sourceTree = "<group>"; };
 		F5935E107AE39FC01B43243E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53E68E6EAFD61416E11DF76B /* libPods.a in Frameworks */,
+				7B418F14A002424C3B05FF58 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,12 +126,15 @@
 				ADAEC6711B8404DA00C55256 /* AppDelegate.m */,
 				ADAEC6731B8404DA00C55256 /* ViewController.h */,
 				ADAEC6741B8404DA00C55256 /* ViewController.m */,
+				B85981221CCB8D3A00269FB3 /* ContainerBackgroundView.xib */,
 				B85981091CCB24DC00269FB3 /* BookListCellView.h */,
 				B859810A1CCB24DC00269FB3 /* BookListCellView.m */,
 				B859810C1CCB250700269FB3 /* BookListModel.h */,
 				B859810D1CCB250700269FB3 /* BookListModel.m */,
 				ADCED4B91B8460D600AC6389 /* DetailViewController.h */,
 				ADCED4BA1B8460D600AC6389 /* DetailViewController.m */,
+				B859810F1CCB5B1000269FB3 /* MoreDetailViewController.h */,
+				B85981101CCB5B1000269FB3 /* MoreDetailViewController.m */,
 				AD6EC62E1BA7065400C9FF5A /* ScanViewController.h */,
 				AD6EC62F1BA7065400C9FF5A /* ScanViewController.m */,
 				ADAEC6761B8404DA00C55256 /* Main.storyboard */,
@@ -136,6 +150,9 @@
 			children = (
 				B85980E41CCA65F600269FB3 /* Library-Prefix.pch */,
 				B85981071CCA73E400269FB3 /* icon.png */,
+				B859811C1CCB714800269FB3 /* code.png */,
+				B85981241CCBA5D400269FB3 /* scan_bg.png */,
+				B85981251CCBA5D400269FB3 /* scan_line.png */,
 				AD6EC6311BA707BB00C9FF5A /* pick_bg@2x.png */,
 				AD6EC6331BA707C000C9FF5A /* line@2x.png */,
 				B85980E51CCA6A4500269FB3 /* book_front_cover.png */,
@@ -166,7 +183,7 @@
 		B7963886BA835EC0A60785FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				45E3A7E7A265C5CD56A77B0E /* libPods.a */,
+				17BF4F459D84E2EEC84C6480 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,11 +282,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85981231CCB8D3A00269FB3 /* ContainerBackgroundView.xib in Resources */,
+				B85981261CCBA5D400269FB3 /* scan_bg.png in Resources */,
 				B85980E61CCA6A4500269FB3 /* book_front_cover.png in Resources */,
 				AD6EC6341BA707C000C9FF5A /* line@2x.png in Resources */,
+				B859811D1CCB714800269FB3 /* code.png in Resources */,
 				ADAEC6781B8404DA00C55256 /* Main.storyboard in Resources */,
 				ADAEC67D1B8404DA00C55256 /* LaunchScreen.xib in Resources */,
 				B85981081CCA73E400269FB3 /* icon.png in Resources */,
+				B85981271CCBA5D400269FB3 /* scan_line.png in Resources */,
 				ADAEC6931B84055600C55256 /* Books.plist in Resources */,
 				AD6EC6321BA707BB00C9FF5A /* pick_bg@2x.png in Resources */,
 				ADAEC67A1B8404DA00C55256 /* Images.xcassets in Resources */,
@@ -340,6 +361,7 @@
 			files = (
 				ADAEC6751B8404DA00C55256 /* ViewController.m in Sources */,
 				AD6EC6301BA7065400C9FF5A /* ScanViewController.m in Sources */,
+				B85981111CCB5B1000269FB3 /* MoreDetailViewController.m in Sources */,
 				B859810E1CCB250700269FB3 /* BookListModel.m in Sources */,
 				ADAEC6721B8404DA00C55256 /* AppDelegate.m in Sources */,
 				ADAEC66F1B8404DA00C55256 /* main.m in Sources */,

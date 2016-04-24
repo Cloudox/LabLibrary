@@ -12,6 +12,8 @@
 
 @interface ScanViewController ()
 
+@property (nonatomic, strong) UIView *tempView;
+
 @end
 
 @implementation ScanViewController
@@ -19,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"图书扫码";
+    self.title = @"Scan ISBN";
     
     //获取摄像设备
     AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -56,7 +58,7 @@
     
     // 方框
     self.rectImage = [[UIImageView alloc]initWithFrame:CGRectMake(30, (screenBounds.size.height - (screenBounds.size.width - 60))/2, screenBounds.size.width - 60, screenBounds.size.width - 60)];
-    self.rectImage.image = [UIImage imageNamed:@"pick_bg"];
+    self.rectImage.image = [UIImage imageNamed:@"scan_bg"];
     [self.view addSubview:self.rectImage];
     
     // 说明文字
@@ -70,10 +72,15 @@
     self.upOrdown = NO;
     self.num =0;
     self.line = [[UIImageView alloc] initWithFrame:CGRectMake(70, (screenBounds.size.height - (screenBounds.size.width - 60))/2 + 10, screenBounds.size.width - 140, 2)];
-    self.line.image = [UIImage imageNamed:@"line.png"];
+    self.line.image = [UIImage imageNamed:@"scan_line"];
     [self.view addSubview:self.line];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tempView removeFromSuperview];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -123,23 +130,32 @@
 //        [self.rectImage removeFromSuperview];
 //        [self.explainLabel removeFromSuperview];
 //        [self.navigationController popViewControllerAnimated:YES];
+        
+        
         // 必须通过storyboard来找到view！
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
         detailVC.isbn = metadataObject.stringValue;
         detailVC.nadrNum = @"";
-        [self.navigationController pushViewController:detailVC animated:YES];
+        detailVC.bookTitle = @"";
+        
+        // 动画弹出
+        self.tempView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT / 2 - 2, SCREENWIDTH, 4)];
+        self.tempView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.tempView];
+        // 进行一秒钟的动画
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tempView.transform = CGAffineTransformMakeScale(1.0, SCREENHEIGHT / 4);
+        }];
+        
+        double delayInSeconds = 0.2;
+        __block ScanViewController* bself = self;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [bself.navigationController pushViewController:detailVC animated:NO];
+        });
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
