@@ -18,6 +18,9 @@
 
 @property (nonatomic, weak) BookListCellView *transitionCell;
 
+@property (nonatomic, strong) UIView *bgView;// 阴影视图
+@property (nonatomic, strong) BookListCellView *selectedCell;// 选中的cell
+
 @end
 
 @implementation ViewController
@@ -29,6 +32,8 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"My Library";
+    self.view.backgroundColor = [UIColor blackColor];
+    self.searchBar.backgroundColor = [UIColor whiteColor];
     
     // 导航栏按钮
 //    self.borderedBar  = [[UIBarButtonItem alloc] initWithTitle:@"Scan Code" style:UIBarButtonItemStyleBordered target:self action:@selector(scan)];
@@ -47,6 +52,19 @@
 //    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
 //    self.bookList = [NSMutableArray arrayWithArray:tempArray];
 //    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
+    // 获取应用程序沙盒的Documents目录
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *plistPath1 = [paths objectAtIndex:0];
+    // 得到完整的文件名
+    NSString *filename = [plistPath1 stringByAppendingPathComponent:@"Books.plist"];
+    
+    NSArray *tempArray = [[NSArray alloc] initWithContentsOfFile:filename];
+    if (tempArray.count == 0) {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
+        tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
+    }
+    self.bookList = [NSMutableArray arrayWithArray:tempArray];
+    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
     
     // 去除列表多余线条
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -62,8 +80,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // 读取plist
+    [self.tempView removeFromSuperview];
+    [self.bgView removeFromSuperview];
+    [self.selectedCell removeFromSuperview];
     
+    // 读取plist
     // 获取应用程序沙盒的Documents目录
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *plistPath1 = [paths objectAtIndex:0];
@@ -76,9 +97,18 @@
         tempArray = [[NSArray alloc] initWithContentsOfFile:plistPath];
     }
     self.bookList = [NSMutableArray arrayWithArray:tempArray];
-    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
+//    self.searchBooks = [NSMutableArray arrayWithArray:tempArray];
     [self.tableView reloadData];
-    [self.tempView removeFromSuperview];
+    
+}
+
+// 阴影视图
+- (UIView *)bgView {
+    if (nil == _bgView) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT)];
+        _bgView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    }
+    return _bgView;
 }
 
 - (void)scan {// 进入扫码界面
@@ -184,7 +214,7 @@
 //        cell.frame = CGRectMake(0, SCREENHEIGHT / 2, SCREENWIDTH, [cell getHeight]);
 //        [self.view addSubview:cell];
         
-        
+        /*
         CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
         CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
         self.tempView = [[UIView alloc] initWithFrame:rect];
@@ -203,7 +233,47 @@
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [bself.navigationController pushViewController:detailVC animated:NO];
         });
+         */
         
+        
+        CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+        CGRect sourceRect = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+        self.selectedCell = (BookListCellView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+        self.selectedCell.frame = sourceRect;
+        self.selectedCell.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.selectedCell];
+        [self bgView];
+        [self.view addSubview:_bgView];
+        [self.view bringSubviewToFront:self.selectedCell];
+        self.tempView = [[UIView alloc] initWithFrame:self.selectedCell.frame];
+        self.tempView.backgroundColor = [UIColor whiteColor];
+        self.tempView.alpha = 0;
+        [self.view addSubview:self.tempView];
+        // 进行动画
+        [UIView animateWithDuration:0.3 animations:^{
+            self.selectedCell.transform = CGAffineTransformMakeScale(1.0, 1.1);
+            self.tempView.alpha = 1;
+        }];
+        
+        double delayInSeconds = 0.3;
+        __block ViewController* bself = self;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [bself.selectedCell removeFromSuperview];
+            // 进行动画
+            [UIView animateWithDuration:0.3 animations:^{
+                bself.tempView.transform = CGAffineTransformMakeScale(1.0, SCREENHEIGHT / bself.tempView.frame.size.height * 2);
+            }];
+        });
+        
+        double delayInSeconds2 = 0.6;
+        dispatch_time_t popTime2 = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds2 * NSEC_PER_SEC));
+        dispatch_after(popTime2, dispatch_get_main_queue(), ^(void){
+            // 进行动画
+            [UIView animateWithDuration:0.3 animations:^{
+                [bself.navigationController pushViewController:detailVC animated:NO];
+            }];
+        });
     }
 }
 
@@ -301,7 +371,7 @@
     
     previewingContext.sourceRect = sourceRect;
     
-    //获取数据进行传值
+    // 获取数据进行传值
     // 必须通过storyboard来找到view！
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
