@@ -22,5 +22,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *nadrLabel;
 @property (strong, nonatomic) IBOutlet UITextView *summary;
 @property (strong, nonatomic) IBOutlet UILabel *catalogLabel;
+@property (strong, nonatomic) IBOutlet UILabel *SummaryTitle;
 
 @end

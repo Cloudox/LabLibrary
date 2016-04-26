@@ -28,6 +28,7 @@
     
     self.title = @"Book Detail";
     self.navigationController.navigationBar.tintColor = navigationBarColor;
+    self.view.backgroundColor = kUIColorFromRGB(0xefefef);
     
     self.catalog = @"";
     
@@ -52,8 +53,22 @@
     
     self.catalogLabel.textColor = cmGreen;
     self.catalogLabel.userInteractionEnabled = YES;
+    // view显示为圆角
+    self.catalogLabel.layer.cornerRadius = 8.0;
+    // 加边框
+    self.catalogLabel.layer.borderWidth = 1.0;
+    self.catalogLabel.layer.borderColor = [cmGreen CGColor];
+    [self.catalogLabel.layer setCornerRadius:4.0];
     UITapGestureRecognizer *catalogTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewCatalog)];
     [self.catalogLabel addGestureRecognizer:catalogTap];
+    
+    self.summary.backgroundColor = kUIColorFromRGB(0xefefef);
+    self.SummaryTitle.textColor = [UIColor darkGrayColor];
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.summary.frame.origin.y + self.summary.frame.size.height, SCREENWIDTH, 0.5)];
+    line.backgroundColor = [UIColor darkGrayColor];
+    line.alpha = 0.5;
+    [self.view addSubview:line];
     
     self.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewImage)];
